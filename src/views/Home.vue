@@ -22,7 +22,7 @@
       },
 
       created() {
-         api.getAssest()
+         api.getAssests()
             .then(assets => this.assets = assets)
       }
    }
