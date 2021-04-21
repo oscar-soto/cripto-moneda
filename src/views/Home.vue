@@ -1,8 +1,29 @@
 <template>
-   
+   <div>
+      <px-assests-table :assets="assets"></px-assests-table>
+   </div>
 </template>
 <script>
-export default {
-   name: 'home'
-}
+   
+   import api from '@/api.js';
+   import PxAssestsTable from '@/components/PxAssestsTable';
+
+   export default {
+      name: 'home',
+
+      components: { 
+         PxAssestsTable 
+      },
+
+      data() {
+         return {
+            assets: []
+         }
+      },
+
+      created() {
+         api.getAssest()
+            .then(assets => this.assets = assets)
+      }
+   }
 </script>
